@@ -177,7 +177,7 @@ body {
 }
 @media (max-width: 768px) {
   .dashboard-grid { grid-template-columns: 1fr; }
-  .sidebar { display: none; }
+  .sidebar { position: static; margin-bottom: 2rem; }
 }
 
 /* ── Filter Sidebar ──────────────────────────────────────── */
