@@ -80,8 +80,12 @@ def api_sources():
             if query in s.get("title", "").lower() or query in s.get("author", "").lower()
         ]
 
-    return jsonify(sources)
-
+    import json
+    return app.response_class(
+        response=json.dumps(sources, indent=4),
+        status=200,
+        mimetype='application/json'
+    )
 
 @app.route("/api/stats")
 def api_stats():
