@@ -1,0 +1,42 @@
+[
+  {
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/37638757/",
+    "source_type": "pubmed",
+    "title": "Large language models in medicine",
+    "author": "Thirunavukarasu AJ, Ting DSJ, Elangovan K, Gutierrez L, Tan TF, Ting DSW",
+    "published_date": "2023-08-01",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "large language models",
+      "clinical medicine",
+      "artificial intelligence",
+      "natural language processing",
+      "healthcare"
+    ],
+    "trust_score": 0.94,
+    "score_breakdown": {
+      "author_credibility": 0.85,
+      "citation_count": 1.0,
+      "domain_authority": 0.95,
+      "recency": 0.85,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "HIGH TRUST (score: 0.94). Strong factors: domain authority, citation count, author credibility, recency.",
+    "component_explanations": {
+      "author_credibility": "6 academic authors with institutional affiliations",
+      "citation_count": "100+ citations in PubMed Central",
+      "domain_authority": "Known high-authority domain (pubmed.ncbi.nlm.nih.gov)",
+      "recency": "Content is recent (2023)",
+      "medical_disclaimer": "No medical disclaimer (academic paper)"
+    },
+    "content_chunks": [
+      "Large language models (LLMs) represent a transformative advancement in natural language processing, with emerging applications across clinical medicine. These models demonstrate remarkable capabilities in medical question answering, clinical documentation, and diagnostic reasoning.",
+      "GPT-4 and similar models achieve passing scores on medical licensing examinations, suggesting substantial biomedical knowledge acquisition. However, challenges remain around hallucination, bias, and reliability in high-stakes clinical settings.",
+      "Integration of LLMs into clinical workflows requires robust validation frameworks, attention to patient privacy, and careful consideration of how these tools interact with existing clinical decision support systems."
+    ],
+    "journal": "Nature Medicine",
+    "domain": "pubmed.ncbi.nlm.nih.gov",
+    "has_transcript": null
+  }
+]

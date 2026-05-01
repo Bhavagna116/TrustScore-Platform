@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block title %}{{ source.title[:50] }} — TrustScore AI{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+
+  <!-- Back Button -->
+  <a href="/" class="back-btn">← Back to Dashboard</a>
+
+  <!-- Source Header -->
+  <header class="detail-header">
+    <div class="detail-type-badge type-{{ source.source_type }}">
+      {% if source.source_type == 'blog' %}📝 Blog Post
+      {% elif source.source_type == 'youtube' %}▶️ YouTube Video
+      {% else %}🔬 PubMed Article{% endif %}
+    </div>
+
+    <h1 class="detail-title">{{ source.title }}</h1>
+
+    <div class="detail-meta-row">
+      <div class="detail-meta-item">
+        <span class="meta-icon">👤</span>
+        <span>{{ source.author }}</span>
+      </div>
+      {% if source.published_date %}
+      <div class="detail-meta-item">
+        <span class="meta-icon">📅</span>
+        <span>{{ source.published_date[:10] }}</span>
+      </div>
+      {% endif %}
+      {% if source.language %}
+      <div class="detail-meta-item">
+        <span class="meta-icon">🌐</span>
+        <span>{{ source.language }}</span>
+      </div>
+      {% endif %}
+      {% if source.region %}
+      <div class="detail-meta-item">
+        <span class="meta-icon">📍</span>
+        <span>{{ source.region }}</span>
+      </div>
+      {% endif %}
+      {% if source.journal %}
+      <div class="detail-meta-item">
+        <span class="meta-icon">📚</span>
+        <span>{{ source.journal }}</span>
+      </div>
+      {% endif %}
+    </div>
+
+    <a href="{{ source.source_url }}" class="source-url-link" target="_blank" rel="noopener">
+      🔗 {{ source.source_url[:70] }}{% if source.source_url|length > 70 %}...{% endif %}
+    </a>
+  </header>
+
+  <div class="detail-grid">
+    <!-- LEFT: Content -->
+    <div class="detail-content-col">
+
+      <!-- Topic Tags -->
+      <div class="detail-section">
+        <h2 class="section-title">🏷️ Topic Tags</h2>
+        <div class="tag-list large">
+          {% for tag in source.topic_tags %}
+          <span class="tag-pill large">{{ tag }}</span>
+          {% endfor %}
+          {% if not source.topic_tags %}
+          <span class="empty-tags">No tags extracted</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Content Chunks -->
+      <div class="detail-section">
+        <h2 class="section-title">📄 Content Preview</h2>
+        <div class="chunks-container">
+          {% for chunk in source.content_chunks %}
+          <div class="chunk-card">
+            <div class="chunk-number">§{{ loop.index }}</div>
+            <p class="chunk-text">{{ chunk }}</p>
+          </div>
+          {% else %}
+          <div class="empty-state small">
+            <p>No content chunks available for this source.</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Trust Score Panel -->
+    <div class="detail-score-col">
+
+      <!-- Trust Score Big Display -->
+      <div class="trust-score-panel {% if source.trust_score >= 0.7 %}panel-high{% elif source.trust_score >= 0.4 %}panel-medium{% else %}panel-low{% endif %}">
+        <div class="score-big-label">Trust Score</div>
+        <div class="score-big-number">{{ "%.2f"|format(source.trust_score) }}</div>
+        <div class="score-big-pct">{{ (source.trust_score * 100)|int }}%</div>
+        <div class="score-verdict">
+          {% if source.trust_score >= 0.8 %}✅ HIGH TRUST
+          {% elif source.trust_score >= 0.6 %}🟡 MODERATE TRUST
+          {% elif source.trust_score >= 0.4 %}🟠 LOW-MODERATE TRUST
+          {% else %}🔴 LOW TRUST{% endif %}
+        </div>
+      </div>
+
+      <!-- XAI Explanation -->
+      <div class="detail-section">
+        <h2 class="section-title">🤖 Why This Score?</h2>
+        <div class="explanation-box">{{ source.explanation }}</div>
+
+        {% if source.component_explanations %}
+        <div class="component-explanations">
+          {% for key, val in source.component_explanations.items() %}
+          <div class="comp-expl-row">
+            <span class="comp-label">{{ key.replace('_', ' ').title() }}</span>
+            <span class="comp-val">{{ val }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Score Breakdown Chart -->
+      <div class="detail-section">
+        <h2 class="section-title">📊 Score Breakdown</h2>
+        <canvas id="radarChart" height="260"></canvas>
+      </div>
+
+      <!-- Score Component Bars -->
+      {% if source.score_breakdown %}
+      <div class="detail-section">
+        <h2 class="section-title">📈 Component Scores</h2>
+        {% for component, score in source.score_breakdown.items() %}
+        <div class="component-bar-row">
+          <div class="component-bar-label">{{ component.replace('_', ' ').title() }}</div>
+          <div class="component-bar-track">
+            <div class="component-bar-fill {% if score >= 0.7 %}fill-high{% elif score >= 0.4 %}fill-medium{% else %}fill-low{% endif %}"
+                 style="width: {{ (score * 100)|int }}%">
+            </div>
+          </div>
+          <span class="component-bar-val">{{ "%.2f"|format(score) }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const SOURCE = {{ source | tojson }};
+
+// Radar chart for score breakdown
+const breakdown = SOURCE.score_breakdown || {};
+const labels = Object.keys(breakdown).map(k => k.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()));
+const values = Object.values(breakdown);
+
+const ctx = document.getElementById('radarChart').getContext('2d');
+new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: labels,
+    datasets: [{
+      label: 'Score',
+      data: values,
+      backgroundColor: 'rgba(99, 102, 241, 0.2)',
+      borderColor: 'rgba(99, 102, 241, 0.8)',
+      borderWidth: 2,
+      pointBackgroundColor: 'rgba(99, 102, 241, 1)',
+      pointRadius: 4,
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      r: {
+        min: 0, max: 1,
+        grid: { color: 'rgba(255,255,255,0.1)' },
+        ticks: { color: '#94a3b8', stepSize: 0.2, backdropColor: 'transparent' },
+        pointLabels: { color: '#e2e8f0', font: { size: 11 } },
+      }
+    },
+    plugins: { legend: { display: false } }
+  }
+});
+</script>
+{% endblock %}

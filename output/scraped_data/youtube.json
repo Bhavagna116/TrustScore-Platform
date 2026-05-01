@@ -1,0 +1,81 @@
+[
+  {
+    "source_url": "https://www.youtube.com/watch?v=aircAruvnKk",
+    "source_type": "youtube",
+    "title": "But what is a neural network? | Deep learning chapter 1",
+    "author": "3Blue1Brown",
+    "published_date": "2017-10-05",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "neural networks",
+      "deep learning",
+      "machine learning",
+      "artificial intelligence",
+      "mathematics"
+    ],
+    "trust_score": 0.72,
+    "score_breakdown": {
+      "author_credibility": 0.65,
+      "citation_count": 0.0,
+      "domain_authority": 0.6,
+      "recency": 0.15,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "MODERATE TRUST (score: 0.72). Strong factors: domain authority. Weak: recency (2017), citation count.",
+    "component_explanations": {
+      "author_credibility": "Named channel with educational content",
+      "citation_count": "No citations in transcript",
+      "domain_authority": "Known medium-authority domain (youtube.com)",
+      "recency": "Content is very old (2017)",
+      "medical_disclaimer": "No medical disclaimer"
+    },
+    "content_chunks": [
+      "When you see a picture of a handwritten digit and ask what number it is, your brain effortlessly recognizes the answer. But teaching a computer to do the same thing is surprisingly complex.",
+      "A neural network is a series of layers — each layer a collection of neurons — that transform input data step by step. Each neuron computes a weighted sum of its inputs and passes it through an activation function.",
+      "Training a neural network means adjusting millions of weights so the network's outputs match the desired answers. This is done through backpropagation and gradient descent over massive datasets."
+    ],
+    "journal": "",
+    "domain": "youtube.com",
+    "has_transcript": true
+  },
+  {
+    "source_url": "https://www.youtube.com/watch?v=ukzFI9rgwfU",
+    "source_type": "youtube",
+    "title": "Machine Learning Explained in 100 Seconds",
+    "author": "Fireship",
+    "published_date": "2021-05-20",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "machine learning",
+      "programming",
+      "data science",
+      "algorithms",
+      "python"
+    ],
+    "trust_score": 0.58,
+    "score_breakdown": {
+      "author_credibility": 0.6,
+      "citation_count": 0.0,
+      "domain_authority": 0.6,
+      "recency": 0.55,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "MODERATE TRUST (score: 0.58). Weak factors: citation count, author credibility.",
+    "component_explanations": {
+      "author_credibility": "Popular tech channel, unverified credentials",
+      "citation_count": "No academic citations",
+      "domain_authority": "Known medium-authority domain (youtube.com)",
+      "recency": "Content is aging (2021)",
+      "medical_disclaimer": "No medical disclaimer"
+    },
+    "content_chunks": [
+      "Machine learning is a subset of artificial intelligence where systems learn from data to make predictions or decisions without being explicitly programmed for each task.",
+      "The three main types of machine learning are supervised learning (trained on labeled data), unsupervised learning (finds patterns without labels), and reinforcement learning (learns from rewards)."
+    ],
+    "journal": "",
+    "domain": "youtube.com",
+    "has_transcript": false
+  }
+]

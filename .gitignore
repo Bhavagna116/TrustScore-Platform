@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+output/sources.db
+.env
+venv/
+env/
+TrustScore_Platform_Submission.zip
+.gemini/

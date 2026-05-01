@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — TrustScore AI{% endblock %}
+
+{% block content %}
+<!-- Hero Stats Bar -->
+<section class="stats-bar">
+  <div class="stat-card">
+    <div class="stat-number">{{ stats.total }}</div>
+    <div class="stat-label">Total Sources</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">{{ "%.2f"|format(stats.avg_score) }}</div>
+    <div class="stat-label">Avg Trust Score</div>
+  </div>
+  <div class="stat-card highlight-green">
+    <div class="stat-number">{{ stats.score_distribution.high }}</div>
+    <div class="stat-label">High Trust</div>
+  </div>
+  <div class="stat-card highlight-yellow">
+    <div class="stat-number">{{ stats.score_distribution.medium }}</div>
+    <div class="stat-label">Medium Trust</div>
+  </div>
+  <div class="stat-card highlight-red">
+    <div class="stat-number">{{ stats.score_distribution.low }}</div>
+    <div class="stat-label">Low Trust</div>
+  </div>
+</section>
+
+<div class="dashboard-grid">
+  <!-- LEFT: Filters + Source List -->
+  <aside class="sidebar">
+    <div class="filter-panel">
+      <h3 class="filter-title">🔗 Analyze New URL</h3>
+      <div class="filter-group scrape-group">
+        <input type="text" id="scrape-url-input" class="filter-input" placeholder="Paste Blog, YouTube, or PubMed URL...">
+        <button id="scrape-btn" class="action-btn" style="margin-top: 10px; width: 100%;">Analyze</button>
+        <div id="scrape-status" style="display: none; margin-top: 5px; font-size: 0.9em; color: #a78bfa;">Processing...</div>
+      </div>
+
+      <h3 class="filter-title" style="margin-top: 30px;">🔎 Filter Sources</h3>
+
+      <div class="filter-group">
+        <label class="filter-label">Search</label>
+        <input type="text" id="search-input" class="filter-input" placeholder="Title or author...">
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label">Source Type</label>
+        <div class="type-buttons">
+          <button class="type-btn active" data-type="all" id="btn-all">All</button>
+          <button class="type-btn" data-type="blog" id="btn-blog">📝 Blog</button>
+          <button class="type-btn" data-type="youtube" id="btn-youtube">▶️ YouTube</button>
+          <button class="type-btn" data-type="pubmed" id="btn-pubmed">🔬 PubMed</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label">Min Trust Score: <span id="score-val">0.0</span></label>
+        <input type="range" id="score-slider" class="filter-slider" min="0" max="1" step="0.05" value="0">
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label">Filter by Tag</label>
+        <div class="tag-cloud" id="filter-tags">
+          {% set all_tags = [] %}
+          {% for s in sources %}
+            {% for tag in s.topic_tags %}
+              {% if tag not in all_tags %}
+                {% set _ = all_tags.append(tag) %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          {% for tag in all_tags[:20] %}
+            <span class="tag-pill clickable" data-tag="{{ tag }}">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <button class="reset-btn" id="reset-filters">↺ Reset Filters</button>
+
+      <h3 class="filter-title" style="margin-top: 30px;">📥 Export Data</h3>
+      <div style="display: flex; gap: 10px; margin-top: 10px;">
+        <button id="export-csv" class="action-btn" style="flex: 1; background: #334155; border: 1px solid #475569;">CSV</button>
+        <button id="export-json" class="action-btn" style="flex: 1; background: #334155; border: 1px solid #475569;">JSON</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CENTER: Source Cards -->
+  <section class="source-list" id="source-list">
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
+      <select id="sort-select" class="filter-input" style="width: 200px; padding: 8px;">
+        <option value="default">Sort By: Default</option>
+        <option value="score-desc">Score: High to Low</option>
+        <option value="score-asc">Score: Low to High</option>
+        <option value="date-desc">Date: Newest First</option>
+        <option value="date-asc">Date: Oldest First</option>
+      </select>
+    </div>
+    
+    {% for source in sources %}
+    <article class="source-card" 
+             data-type="{{ source.source_type }}"
+             data-score="{{ source.trust_score }}"
+             data-title="{{ source.title|lower }}"
+             data-author="{{ source.author|lower }}"
+             data-tags="{{ source.topic_tags|join(',') }}">
+
+      <div class="card-header">
+        <div class="source-type-badge type-{{ source.source_type }}">
+          {% if source.source_type == 'blog' %}📝 Blog
+          {% elif source.source_type == 'youtube' %}▶️ YouTube
+          {% else %}🔬 PubMed{% endif %}
+        </div>
+        <div class="trust-badge {% if source.trust_score >= 0.7 %}trust-high{% elif source.trust_score >= 0.4 %}trust-medium{% else %}trust-low{% endif %}">
+          {{ "%.2f"|format(source.trust_score) }}
+        </div>
+      </div>
+
+      <h2 class="card-title">
+        <a href="/source/{{ source.id }}" class="card-link">
+          {{ source.title[:80] }}{% if source.title|length > 80 %}...{% endif %}
+        </a>
+      </h2>
+
+      <div class="card-meta">
+        <span class="meta-item">👤 {{ source.author[:40] }}</span>
+        {% if source.published_date %}
+        <span class="meta-item">📅 {{ source.published_date[:10] }}</span>
+        {% endif %}
+        {% if source.language %}
+        <span class="meta-item">🌐 {{ source.language }}</span>
+        {% endif %}
+      </div>
+
+      <!-- Trust Score Progress Bar -->
+      <div class="score-bar-container">
+        <div class="score-bar-label">Trust Score</div>
+        <div class="score-bar-track">
+          <div class="score-bar-fill {% if source.trust_score >= 0.7 %}fill-high{% elif source.trust_score >= 0.4 %}fill-medium{% else %}fill-low{% endif %}"
+               style="width: {{ (source.trust_score * 100)|int }}%">
+          </div>
+        </div>
+        <span class="score-bar-pct">{{ (source.trust_score * 100)|int }}%</span>
+      </div>
+
+      <!-- XAI Explanation -->
+      <div class="card-explanation">{{ source.explanation }}</div>
+
+      <!-- Topic Tags -->
+      <div class="tag-list">
+        {% for tag in source.topic_tags[:6] %}
+        <span class="tag-pill">{{ tag }}</span>
+        {% endfor %}
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+        <a href="/source/{{ source.id }}" class="card-detail-btn">View Details →</a>
+        <button class="copy-url-btn" data-url="{{ source.source_url }}" title="Copy Source URL" style="background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 1.2em;">📋</button>
+      </div>
+    </article>
+    {% else %}
+    <div class="empty-state">
+      <div class="empty-icon">📭</div>
+      <h3>No sources scraped yet</h3>
+      <p>Run <code>python main.py all</code> to scrape and score all sources.</p>
+    </div>
+    {% endfor %}
+  </section>
+
+  <!-- RIGHT: Charts -->
+  <aside class="charts-panel">
+    <div class="chart-card">
+      <h3 class="chart-title">📊 Trust Score Breakdown</h3>
+      <canvas id="scoreBreakdownChart" height="220"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3 class="chart-title">🏷️ Top Tags</h3>
+      <canvas id="tagFreqChart" height="220"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3 class="chart-title">📈 Score Distribution</h3>
+      <canvas id="distChart" height="180"></canvas>
+    </div>
+  </aside>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Pass server data to JS
+  const SOURCES = {{ sources | tojson }};
+  const STATS = {{ stats | tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

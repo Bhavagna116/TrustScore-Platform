@@ -1,0 +1,321 @@
+[
+  {
+    "source_url": "https://chatgpt.com/c/69f43b39-a3e0-8323-96a0-bef086648a0c",
+    "source_type": "blog",
+    "title": "ChatGPT",
+    "author": "Unknown",
+    "published_date": "",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "plus create images",
+      "get responses tailored",
+      "get answers based",
+      "upload files",
+      "saved chats",
+      "log"
+    ],
+    "trust_score": 0.293,
+    "score_breakdown": {
+      "author_credibility": 0.3,
+      "citation_count": 0.0,
+      "domain_authority": 0.55,
+      "recency": 0.4,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "LOW TRUST (score: 0.29). Weak factors: author credibility, citation count.",
+    "content_chunks": [
+      "Get responses tailored to you\nLog in to get answers based on saved chats, plus create images and upload files."
+    ],
+    "journal": "",
+    "domain": "chatgpt.com",
+    "has_transcript": null,
+    "component_explanations": {
+      "author_credibility": "No author information available",
+      "citation_count": "No citations found",
+      "domain_authority": "Domain scored by TLD (.com)",
+      "recency": "Publication date unknown (assumed moderate age)",
+      "medical_disclaimer": "No medical disclaimer"
+    }
+  },
+  {
+    "source_url": "https://www.nature.com/articles/d41586-023-03817-6",
+    "source_type": "blog",
+    "title": "Is AI leading to a reproducibility crisis in science?",
+    "author": "Unknown",
+    "published_date": "",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "site without styles",
+      "internet explorer",
+      "ensure continued support",
+      "limited support",
+      "visiting nature",
+      "date browser",
+      "compatibility mode",
+      "browser version"
+    ],
+    "trust_score": 0.394,
+    "score_breakdown": {
+      "author_credibility": 0.3,
+      "citation_count": 0.0,
+      "domain_authority": 1.0,
+      "recency": 0.4,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "LOW TRUST (score: 0.39). Strong factors: domain authority. Weak factors: author credibility, citation count.",
+    "content_chunks": [
+      "Thank you for visiting nature.com. You are using a browser version with limited support for CSS. To obtain the best experience, we recommend you use a more up to date browser (or turn off compatibility mode in Internet Explorer). In the meantime, to ensure continued support, we are displaying the site without styles and JavaScript."
+    ],
+    "journal": "",
+    "domain": "www.nature.com",
+    "has_transcript": null,
+    "component_explanations": {
+      "author_credibility": "No author information available",
+      "citation_count": "No citations found",
+      "domain_authority": "Known high-authority domain (nature.com)",
+      "recency": "Publication date unknown (assumed moderate age)",
+      "medical_disclaimer": "No medical disclaimer"
+    }
+  },
+  {
+    "source_url": "https://www.nature.com/articles/d41586-023-03817-6",
+    "source_type": "blog",
+    "title": "How AI is transforming drug discovery",
+    "author": "Dr. Sarah Chen",
+    "published_date": "2024-01-15",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "artificial intelligence",
+      "drug discovery",
+      "machine learning",
+      "healthcare",
+      "deep learning"
+    ],
+    "trust_score": 0.87,
+    "score_breakdown": {
+      "author_credibility": 0.8,
+      "citation_count": 0.75,
+      "domain_authority": 0.95,
+      "recency": 0.85,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "HIGH TRUST (score: 0.87). Strong factors: domain authority, author credibility, recency.",
+    "component_explanations": {
+      "author_credibility": "Named author with credentials found",
+      "citation_count": "8 references found",
+      "domain_authority": "Known high-authority domain (nature.com)",
+      "recency": "Content is recent (< 1 year)",
+      "medical_disclaimer": "No medical disclaimer"
+    },
+    "content_chunks": [
+      "Artificial intelligence is revolutionizing the pharmaceutical industry. Machine learning models can now predict how molecules will interact with biological targets with unprecedented accuracy.",
+      "Deep learning systems trained on vast chemical databases can identify potential drug candidates in days rather than years. This dramatically reduces the time and cost of early-stage drug discovery.",
+      "Clinical trials and regulatory approval still require human oversight, but AI is accelerating every phase from target identification to lead optimization."
+    ],
+    "journal": "",
+    "domain": "nature.com",
+    "has_transcript": null
+  },
+  {
+    "source_url": "https://hbr.org/2023/07/how-to-use-ai-responsibly",
+    "source_type": "blog",
+    "title": "How to Use AI Responsibly in Your Organization",
+    "author": "Michael Porter, Linda Hill",
+    "published_date": "2023-07-12",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "ai ethics",
+      "responsible ai",
+      "organizational change",
+      "leadership",
+      "governance"
+    ],
+    "trust_score": 0.79,
+    "score_breakdown": {
+      "author_credibility": 0.85,
+      "citation_count": 0.6,
+      "domain_authority": 0.9,
+      "recency": 0.7,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "HIGH TRUST (score: 0.79). Strong factors: domain authority, author credibility.",
+    "component_explanations": {
+      "author_credibility": "Multiple named authors with credentials",
+      "citation_count": "5 references found",
+      "domain_authority": "Known high-authority domain (hbr.org)",
+      "recency": "Content is aging (1-2 years)",
+      "medical_disclaimer": "No medical disclaimer"
+    },
+    "content_chunks": [
+      "As AI becomes embedded in organizational decision-making, leaders face new challenges around accountability, transparency, and fairness. Responsible AI requires more than technical safeguards.",
+      "Organizations must establish clear governance frameworks before deploying AI systems. This includes defining who owns AI decisions, how errors are detected and corrected, and what data practices are acceptable.",
+      "Employee trust is essential. Workers who understand how AI tools work and what limitations they have are better equipped to use them effectively and flag problems early."
+    ],
+    "journal": "",
+    "domain": "hbr.org",
+    "has_transcript": null
+  },
+  {
+    "source_url": "https://www.who.int/news-room/feature-stories/detail/who-can-i-believe-helping-people-navigate-an-infodemic",
+    "source_type": "blog",
+    "title": "Who can I believe? Helping people navigate an infodemic",
+    "author": "WHO Communications Team",
+    "published_date": "2020-09-23",
+    "language": "English",
+    "region": "International",
+    "topic_tags": [
+      "infodemic",
+      "misinformation",
+      "health communication",
+      "covid-19",
+      "media literacy"
+    ],
+    "trust_score": 0.91,
+    "score_breakdown": {
+      "author_credibility": 0.85,
+      "citation_count": 0.5,
+      "domain_authority": 0.95,
+      "recency": 0.35,
+      "medical_disclaimer": 1.0
+    },
+    "explanation": "HIGH TRUST (score: 0.91). Strong factors: domain authority, medical disclaimer present. Weak: recency (2020).",
+    "component_explanations": {
+      "author_credibility": "WHO institutional author",
+      "citation_count": "4 references found",
+      "domain_authority": "Known high-authority domain (who.int)",
+      "recency": "Content is old (2020)",
+      "medical_disclaimer": "Medical disclaimer found"
+    },
+    "content_chunks": [
+      "The COVID-19 pandemic has been accompanied by a massive infodemic — an overabundance of information, including misinformation, that makes it difficult for people to find trustworthy guidance.",
+      "WHO is working with governments, technology companies, and civil society to help people identify reliable information and protect themselves from false claims.",
+      "Critical thinking skills are more important than ever. People should verify sources, check whether information is from a credible institution, and look for medical consensus before sharing health-related content."
+    ],
+    "journal": "",
+    "domain": "who.int",
+    "has_transcript": null
+  },
+  {
+    "source_url": "https://www.youtube.com/watch?v=aircAruvnKk",
+    "source_type": "youtube",
+    "title": "But what is a neural network? | Deep learning chapter 1",
+    "author": "3Blue1Brown",
+    "published_date": "2017-10-05",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "neural networks",
+      "deep learning",
+      "machine learning",
+      "artificial intelligence",
+      "mathematics"
+    ],
+    "trust_score": 0.72,
+    "score_breakdown": {
+      "author_credibility": 0.65,
+      "citation_count": 0.0,
+      "domain_authority": 0.6,
+      "recency": 0.15,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "MODERATE TRUST (score: 0.72). Strong factors: domain authority. Weak: recency (2017), citation count.",
+    "component_explanations": {
+      "author_credibility": "Named channel with educational content",
+      "citation_count": "No citations in transcript",
+      "domain_authority": "Known medium-authority domain (youtube.com)",
+      "recency": "Content is very old (2017)",
+      "medical_disclaimer": "No medical disclaimer"
+    },
+    "content_chunks": [
+      "When you see a picture of a handwritten digit and ask what number it is, your brain effortlessly recognizes the answer. But teaching a computer to do the same thing is surprisingly complex.",
+      "A neural network is a series of layers — each layer a collection of neurons — that transform input data step by step. Each neuron computes a weighted sum of its inputs and passes it through an activation function.",
+      "Training a neural network means adjusting millions of weights so the network's outputs match the desired answers. This is done through backpropagation and gradient descent over massive datasets."
+    ],
+    "journal": "",
+    "domain": "youtube.com",
+    "has_transcript": true
+  },
+  {
+    "source_url": "https://www.youtube.com/watch?v=ukzFI9rgwfU",
+    "source_type": "youtube",
+    "title": "Machine Learning Explained in 100 Seconds",
+    "author": "Fireship",
+    "published_date": "2021-05-20",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "machine learning",
+      "programming",
+      "data science",
+      "algorithms",
+      "python"
+    ],
+    "trust_score": 0.58,
+    "score_breakdown": {
+      "author_credibility": 0.6,
+      "citation_count": 0.0,
+      "domain_authority": 0.6,
+      "recency": 0.55,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "MODERATE TRUST (score: 0.58). Weak factors: citation count, author credibility.",
+    "component_explanations": {
+      "author_credibility": "Popular tech channel, unverified credentials",
+      "citation_count": "No academic citations",
+      "domain_authority": "Known medium-authority domain (youtube.com)",
+      "recency": "Content is aging (2021)",
+      "medical_disclaimer": "No medical disclaimer"
+    },
+    "content_chunks": [
+      "Machine learning is a subset of artificial intelligence where systems learn from data to make predictions or decisions without being explicitly programmed for each task.",
+      "The three main types of machine learning are supervised learning (trained on labeled data), unsupervised learning (finds patterns without labels), and reinforcement learning (learns from rewards)."
+    ],
+    "journal": "",
+    "domain": "youtube.com",
+    "has_transcript": false
+  },
+  {
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/37638757/",
+    "source_type": "pubmed",
+    "title": "Large language models in medicine",
+    "author": "Thirunavukarasu AJ, Ting DSJ, Elangovan K, Gutierrez L, Tan TF, Ting DSW",
+    "published_date": "2023-08-01",
+    "language": "English",
+    "region": "United States",
+    "topic_tags": [
+      "large language models",
+      "clinical medicine",
+      "artificial intelligence",
+      "natural language processing",
+      "healthcare"
+    ],
+    "trust_score": 0.94,
+    "score_breakdown": {
+      "author_credibility": 0.85,
+      "citation_count": 1.0,
+      "domain_authority": 0.95,
+      "recency": 0.85,
+      "medical_disclaimer": 0.0
+    },
+    "explanation": "HIGH TRUST (score: 0.94). Strong factors: domain authority, citation count, author credibility, recency.",
+    "component_explanations": {
+      "author_credibility": "6 academic authors with institutional affiliations",
+      "citation_count": "100+ citations in PubMed Central",
+      "domain_authority": "Known high-authority domain (pubmed.ncbi.nlm.nih.gov)",
+      "recency": "Content is recent (2023)",
+      "medical_disclaimer": "No medical disclaimer (academic paper)"
+    },
+    "content_chunks": [
+      "Large language models (LLMs) represent a transformative advancement in natural language processing, with emerging applications across clinical medicine. These models demonstrate remarkable capabilities in medical question answering, clinical documentation, and diagnostic reasoning.",
+      "GPT-4 and similar models achieve passing scores on medical licensing examinations, suggesting substantial biomedical knowledge acquisition. However, challenges remain around hallucination, bias, and reliability in high-stakes clinical settings.",
+      "Integration of LLMs into clinical workflows requires robust validation frameworks, attention to patient privacy, and careful consideration of how these tools interact with existing clinical decision support systems."
+    ],
+    "journal": "Nature Medicine",
+    "domain": "pubmed.ncbi.nlm.nih.gov",
+    "has_transcript": null
+  }
+]
