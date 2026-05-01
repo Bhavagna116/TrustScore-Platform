@@ -33,3 +33,7 @@ pytest-mock>=3.12.0
 # Optional ML-based tagging (comment out if slow install)
 # keybert>=0.7.0
 # sentence-transformers>=2.2.0
+
+# Production Server
+
+gunicorn>=21.2.0
