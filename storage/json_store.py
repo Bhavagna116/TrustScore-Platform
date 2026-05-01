@@ -46,6 +46,10 @@ def load_json(filename: str) -> List[dict]:
 
 def save_all_sources(sources: List[dict]) -> str:
     """Merge all sources into one combined JSON file."""
+    if os.environ.get("VERCEL"):
+        logger.info("Running on Vercel: Bypassing JSON disk write.")
+        return ""
+    
     ensure_output_dirs()
     with open(ALL_SOURCES_FILE, "w", encoding="utf-8") as f:
         json.dump(sources, f, indent=2, ensure_ascii=False, default=str)
@@ -119,6 +123,10 @@ def init_sqlite_db():
 
 def save_to_sqlite(sources: List[dict]):
     """Save sources to SQLite database."""
+    if os.environ.get("VERCEL"):
+        logger.info("Running on Vercel: Bypassing SQLite write.")
+        return
+
     init_sqlite_db()
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()

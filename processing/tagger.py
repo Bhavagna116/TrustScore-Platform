@@ -68,20 +68,29 @@ def extract_tags_rake(text: str, max_tags: int = MAX_TAGS) -> List[str]:
     try:
         from rake_nltk import Rake
         import nltk
+        import os
+
+        nltk_data_dir = '/tmp/nltk_data'
+        if os.environ.get("VERCEL"):
+            if not os.path.exists(nltk_data_dir):
+                os.makedirs(nltk_data_dir, exist_ok=True)
+            nltk.data.path.append(nltk_data_dir)
+        else:
+            nltk_data_dir = None # Default path
 
         # Download required NLTK data silently
         try:
             nltk.data.find("tokenizers/punkt")
         except LookupError:
-            nltk.download("punkt", quiet=True)
+            nltk.download("punkt", quiet=True, download_dir=nltk_data_dir)
         try:
             nltk.data.find("corpora/stopwords")
         except LookupError:
-            nltk.download("stopwords", quiet=True)
+            nltk.download("stopwords", quiet=True, download_dir=nltk_data_dir)
         try:
             nltk.data.find("tokenizers/punkt_tab")
         except LookupError:
-            nltk.download("punkt_tab", quiet=True)
+            nltk.download("punkt_tab", quiet=True, download_dir=nltk_data_dir)
 
         # Use first 5000 chars for efficiency
         sample = text[:5000] if len(text) > 5000 else text
